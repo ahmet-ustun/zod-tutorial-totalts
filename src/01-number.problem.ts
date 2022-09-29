@@ -2,10 +2,12 @@
 
 import { expect, it } from "vitest";
 import { z } from "zod";
-//       ^ 🕵️‍♂️
+
+const numParser = z.number();
 
 export const toString = (num: unknown) => {
-  return String(num);
+  const result = numParser.parse(num);
+  return String(result);
 };
 
 // TESTS
