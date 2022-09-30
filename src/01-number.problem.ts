@@ -3,10 +3,11 @@
 import { expect, it } from "vitest";
 import { z } from "zod";
 
-const numParser = z.number();
+const numberParser = z.number();
 
-export const toString = (num: unknown) => {
-  const result = numParser.parse(num);
+export const toString = (number: unknown) => {
+  const result = numberParser.parse(number);
+
   return String(result);
 };
 
@@ -14,7 +15,7 @@ export const toString = (num: unknown) => {
 
 it("Should throw a runtime error when called with not a number", () => {
   expect(() => toString("123")).toThrowError(
-    "Expected number, received string",
+    "Expected number, received string"
   );
 });
 

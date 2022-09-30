@@ -9,8 +9,8 @@ const genericFetch = <ZSchema extends z.ZodSchema>(
   schema: ZSchema
 ): Promise<z.infer<ZSchema>> => {
   return fetch(url)
-    .then((res) => res.json())
-    .then((result) => schema.parse(result));
+    .then((result) => result.json())
+    .then((data) => schema.parse(data));
 };
 
 // TESTS
@@ -23,5 +23,7 @@ it("Should fetch from the Star Wars API", async () => {
     })
   );
 
-  type cases = [Expect<Equal<typeof result, { name: string }>>];
+  type cases = [
+    Expect<Equal<typeof result, { name: string }>>
+  ];
 });

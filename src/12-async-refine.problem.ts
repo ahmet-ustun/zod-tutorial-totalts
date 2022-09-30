@@ -4,8 +4,8 @@ import { expect, it } from "vitest";
 import { z } from "zod";
 
 const doesStarWarsPersonExist = async (id: string) => {
-  const data = await fetch("https://swapi.dev/api/people/" + id).then((res) =>
-    res.json()
+  const data = await fetch("https://swapi.dev/api/people/" + id).then(
+    (result) => result.json()
   );
 
   return Boolean(data?.name);

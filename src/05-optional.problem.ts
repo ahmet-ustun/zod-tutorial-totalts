@@ -14,6 +14,7 @@ const PartialForm = Form.partial({
 
 export const validateFormInput = (values: unknown) => {
   const parsedData = PartialForm.parse(values);
+
   return parsedData;
 };
 
